@@ -7,6 +7,11 @@
                 "typemap": "",
                 "sitelist": [
                     {
+                        "site": "https://szfilehelper.weixin.qq.com/",
+                        "img": "https://res.wx.qq.com/a/wx_fed/assets/res/OTE0YTAw.png",
+                        "title": "微信文件传输助手"
+                    },
+                    {
                         "site": "https://doocs.github.io/md/",
                         "img": "https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/favicon.png",
                         "title": "微信Markdown 编辑器"
