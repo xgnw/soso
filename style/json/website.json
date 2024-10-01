@@ -7,6 +7,11 @@
                 "typemap": "",
                 "sitelist": [
                     {
+                        "site": "https://doocs.github.io/md/",
+                        "img": "https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/favicon.png",
+                        "title": "微信Markdown 编辑器"
+                    },
+                    {
                         "site": "https://weread.qq.com/",
                         "img": "./style/img/weixindushu.png",
                         "title": "微信读书"
