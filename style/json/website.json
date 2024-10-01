@@ -17,22 +17,22 @@
                         "title": "微信读书"
                     },
                     {
-                        "site": "https://quan.yumus.cn/ ",
+                        "site": "https://quan.432600.cn/ ",
                         "img": "./style/img/quan.svg",
                         "title": "优惠券"
                     },
                     {
-                        "site": "https://so.yumus.cn/tool/qrcode.html ",
+                        "site": "./tool/qrcode.html ",
                         "img": "./style/img/tool-qrcode.svg",
                         "title": "生成二维码"
                     }
                     ,{
-                        "site": "https://so.yumus.cn/tool/family.html ",
+                        "site": "./tool/family.html ",
                         "img": "./style/img/tool-family.svg",
                         "title": "家庭称谓计算器"
                     }
                     ,{
-                        "site": "https://so.yumus.cn/tool/password.html ",
+                        "site": "./tool/password.html ",
                         "img": "./style/img/tool-password.svg",
                         "title": "随机密码"
                     },
