@@ -14,7 +14,7 @@
                     {
                         "site": "https://doocs.github.io/md/",
                         "img": "https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/favicon.png",
-                        "title": "微信Markdown 编辑器"
+                        "title": "微信Markdown"
                     },
                     {
                         "site": "https://weread.qq.com/",
@@ -67,7 +67,7 @@
                         "title": "帮小忙"
                     },
                     {
-                        "site": "https://www.cikeee.com/",
+                        "site": "https://www.cikeee.cc/",
                         "img": "./style/img/cikeee.ico",
                         "title": "此刻电影"
                     },
