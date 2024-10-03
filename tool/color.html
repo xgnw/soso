@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="user-scalable=no,width=1080">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="apple-touch-icon" href="https://siitake.cn/tools/color/favicon.jpg">
+	<title>The Colorful Avatar of Siitake</title>
+	<style type="text/css">
+		*{margin: 0; padding: 0; font-family: Consolas,PingFangSC-Light; color: white;}
+		#paper{display: block; width: 1080px; margin-left: auto; margin-right: auto;}
+		#rand, #down{display: block; width: 540px; height: 180px; position: fixed; bottom: 0; background: none; border: none; color: white; font-size: 64px;}
+		#rand{left: calc(50vw - 540px);}
+		#down{left:50vw;}
+      	#note{display: block; width: 1080px; margin-left: auto; margin-right: auto; position: fixed; top: 10px; left: calc(50vw - 530px); font-size: 24px;}
+	</style>
+</head>
+<body onload="setColor(getColor())">
+	<canvas id="paper" name="#" width="1080" height="1080">
+		<p>您的浏览器不支持 Canvas 元素。</p>
+		<p>推荐使用 Google Chrome 浏览本页。</p>
+	</canvas>
+	<button id="rand" onclick="setColor(getColor())">随机</button>
+	<button id="down" onclick="down()">下载</button>
+	<div id="note">
+        <p># 项目名称: 意义不明的RGB随机色头像;</p>
+        <p># 使用语言: HTML, CSS, Javascript;</p>
+        <p># 作者: siitake;</p>
+        <p># 注意：如果点击“下载”时下载尚未开始，请在默认浏览器中打开此页面，然后再试一次;;</p>
+    <div>
+	<script type="text/javascript">
+		var getColor = function (){
+			var colorElements = "0,1,2,3,5,6,7,8,9,A,B,C,D,E,F";
+			var colorArray = colorElements.split(",");
+			var color ="#";
+			for(var i = 0; i < 6; i++){
+				color += colorArray[Math.floor(Math.random()*15)];
+			}
+			return color;
+		}
+		var setColor = function(color) {
+			var fontSize = 180;
+			var p = document.getElementById("paper");
+			var ctx = p.getContext("2d");
+			ctx.clearRect(0, 0, 1080, 1080);
+			ctx.fillStyle = color;
+			ctx.fillRect(0, 0, 1080, 1080);
+			ctx.font = fontSize + "px Consolas,PingFangSC-Light";
+			ctx.textAlign = "center";
+			ctx.textBaseline = "middle";
+			ctx.fillStyle = "white";
+			ctx.fillText(color, 540, 540);
+			p.name = color;
+			document.body.style.backgroundColor = color;
+			document.getElementById("rand").style.backgroundColor = color;
+			document.getElementById("down").style.backgroundColor = color;
+        	document.body.scrollTop = 300;
+		}
+		var saveFile = function(data, name) {
+			var save_link = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+			save_link.href = data;
+			save_link.download = name;
+			var event = document.createEvent("MouseEvents");
+			event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+			save_link.dispatchEvent(event);
+		}
+		var down = function() {
+			var p = document.getElementById("paper");
+			var img = p.toDataURL("image/jpeg");
+			var name = document.getElementById("paper").name;
+			saveFile(img, name);
+		}
+	</script>
+</body>
+</html>

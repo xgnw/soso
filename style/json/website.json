@@ -7,6 +7,11 @@
                 "typemap": "",
                 "sitelist": [
                     {
+                        "site": "https://docs.qq.com/form/page/DQnNuQXBVWUNwSURL",
+                        "img": "./style/img/sqwebsite.svg",
+                        "title": "申请收录"
+                    },
+                    {
                         "site": "https://szfilehelper.weixin.qq.com/",
                         "img": "https://res.wx.qq.com/a/wx_fed/assets/res/OTE0YTAw.png",
                         "title": "微信文件传输助手"
@@ -17,12 +22,7 @@
                         "title": "微信Markdown"
                     },
                     {
-                        "site": "https://weread.qq.com/",
-                        "img": "./style/img/weixindushu.png",
-                        "title": "微信读书"
-                    },
-                    {
-                        "site": "https://quan.432600.cn/ ",
+                        "site": "https://ovadi.yhzu.cn/ ",
                         "img": "./style/img/quan.svg",
                         "title": "优惠券"
                     },
@@ -40,6 +40,21 @@
                         "site": "./tool/password.html ",
                         "img": "./style/img/tool-password.svg",
                         "title": "随机密码"
+                    },
+                    ,{
+                        "site": "./tool/taiqian/index.html ",
+                        "img": "./style/img/print.jpg",
+                        "title": "台签打印程序"
+                    },
+                    ,{
+                        "site": "./tool/color.html ",
+                        "img": "./style/img/color.jpg",
+                        "title": "随机色头像"
+                    },
+                    ,{
+                        "site": "./tool/no/index.html ",
+                        "img": "./style/img/no.ico",
+                        "title": "保持屏幕开启"
                     },
                     {
                         "site": "https://www.yumus.cn/ ",
@@ -95,6 +110,56 @@
                         "site": "https://huaban.com/",
                         "img": "./style/img/huaban.svg",
                         "title": "花瓣网"
+                    },
+                    {
+                        "site": "https://zh.wikihow.com/",
+                        "img": "//static.yumus.cn/static/img/website/wikiHow.ico",
+                        "title": "wikiHow"
+                    },
+                    {
+                        "site": "https://www.allhistory.com/",
+                        "img": "//static.yumus.cn/static/img/website/allhistory.ico",
+                        "title": "全历史"
+                    },
+                    {
+                        "site": "https://searchcode.com/",
+                        "img": "//static.yumus.cn/static/img/website/searchcode.ico",
+                        "title": "searchcode"
+                    },
+                    {
+                        "site": "https://www.jiumodiary.com/",
+                        "img": "//static.yumus.cn/static/img/website/Jiumo.png",
+                        "title": "鸠摩搜书"
+                    }
+                ]
+            },
+            {
+                "category": "阅读",
+                "sitelist": [
+                    {
+                        "site": "https://weread.qq.com/",
+                        "img": "./style/img/website/weixindushu.png",
+                        "title": "微信读书"
+                    },
+                    {
+                        "site": "https://read.douban.com/",
+                        "img": "./style/img/website/dbread.ico",
+                        "title": "豆瓣阅读"
+                    },
+                    {
+                        "site": "https://e-m.jd.com/",
+                        "img": "./style/img/website/jdread.png",
+                        "title": "京东读书"
+                    },
+                    {
+                        "site": "https://www.dushu.com/",
+                        "img": "./style/img/website/dsw.ico",
+                        "title": "读书网"
+                    },
+                    {
+                        "site": "https://yuedu.163.com/",
+                        "img": "./style/img/website/wyyread.ico",
+                        "title": "网易云阅读"
                     }
                 ]
             },

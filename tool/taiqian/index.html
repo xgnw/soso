@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="user-scalable=no,width=750">
+	<title>台签制作程序</title>
+	<style type="text/css">
+		#ipt{
+			position: fixed;
+			width: 280px;
+			height: 65px;
+			top: 10px;
+			left: 440px;
+			border-radius: 5px;
+			padding: 10px;
+			box-shadow: 0 0 5px gray;
+		}
+		#name{
+			display: block;
+			margin: 0;
+			padding: 5px;
+			height: 20px;
+			width: 260px;
+			font-size: 18px;
+			line-height: 30px;
+			margin-bottom: 10px;
+		}
+		#paper{
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			box-shadow: 0 0 5px gray;
+			border-radius: 5px;
+			max-width: 420px;
+		}
+		#info{
+			position: fixed;
+			width: 280px;
+			height: 280px;
+			padding: 10px;
+			box-shadow: 0 0 5px gray;
+			border-radius: 5px;
+			top: 105px;
+			left: 440px;
+			font-family: "微软雅黑";
+		}
+		#info li{
+			font-size: 14px;
+			line-height: 1.7;
+			margin-right: 20px;
+		}
+		#tishi{
+			display: block;
+			font-size: 18px;
+			font-weight: bold;
+			text-align: center;
+		}
+		#copy{
+			position: fixed;
+			width: 280px;
+			height: 169px;
+			padding: 10px;
+			box-shadow: 0 0 5px gray;
+			border-radius: 5px;
+			text-align: center;
+			top: 415px;
+			left: 440px;
+		}
+		#copy img{
+			max-height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="ipt">
+		<input type="text" id="name" placeholder="请输入名称例如“框框框”" onkeyup="start()">
+		<input type="button" value="提交" onclick="start()">
+		<input type="button" value="下载图片" onclick="down()">
+		<input type="button" value="切换到宋体" onclick="location.href='./song.html'">
+	</div>
+	<canvas id="paper" width="2100" height="2970">
+		<p>您的浏览器不支持 Canvas 元素。</p>
+		<p>推荐使用<a href="./GoogleChromePortable.zip">Google Chrome</a>浏览本页。</p>
+	</canvas>
+	<div id="info">
+		<p id="tishi">提 示</p>
+		<ol>
+			<li>该程序需要您的浏览器支持Canvas才能使用；</li>
+			<li>若您不能正常生成图片，推荐使用<a href="https://www.baidu.com/baidu?ie=utf-8&word=Google%20Chrome" target="_blank">Google Chrome</a>访问本页；</li>
+			<li>为获得较好的显示效果，请下载并安装“<a href="./FZDBSJW.TTF">方正大标宋</a>”字体；</li>
+			<li>台签图片实时生成，请保存到本地后打印。</li>
+		</ol>
+	</div>
+	<div id="copy">
+		<img src="./siitake.cn.png" />
+	</div>
+	<script type="text/javascript">
+		var setName = function(name) {
+			var length = name.length;
+			var fontSize = 600;
+			if (length >= 4) {
+				fontSize = 1800 / length;
+			};
+			var p = document.getElementById("paper");
+			var ctx = p.getContext("2d");
+			ctx.clearRect(0, 0, 2100, 2970);
+			ctx.fillStyle = "white";
+			ctx.fillRect(0, 0, 2100, 2970);
+			ctx.moveTo(0, 990);
+			ctx.lineTo(2100, 990);
+			ctx.lineWidth = 1;
+			ctx.stroke();
+			ctx.font = fontSize + "px '方正大标宋简体'";
+			ctx.textAlign = "center";
+			ctx.textBaseline = "middle";
+			ctx.fillStyle = "black";
+			ctx.fillText(name, 1050, 1485);
+			ctx.translate(2100, 990);
+			ctx.rotate(Math.PI);
+			ctx.fillText(name, 1050, 495);
+			ctx.font = "150px '方正大标宋简体'";
+			ctx.translate(2100, 990);
+			ctx.rotate(Math.PI);
+			ctx.fillStyle = "silver";
+			ctx.fillText("by: 432600.xyz", 1050, 2700);
+		}
+		var start = function() {
+			var name = document.getElementById("name").value;
+			setName(name);
+		}
+		var saveFile = function(data, name) {
+			var save_link = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+			save_link.href = data;
+			save_link.download = name;
+			var event = document.createEvent("MouseEvents");
+			event.initMouseEvent("click", true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+			save_link.dispatchEvent(event);
+		}
+		var down = function() {
+			var p = document.getElementById("paper");
+			var img = p.toDataURL("image/jpeg");
+			var name = document.getElementById("name").value == "" ? "框框框" : document.getElementById("name").value;
+			saveFile(img, name);
+		}
+		setName("框框框");
+	</script>
+</body>
+</html>
