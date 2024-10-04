@@ -7,9 +7,19 @@
                 "typemap": "",
                 "sitelist": [
                     {
-                        "site": "https://weread.qq.com/",
-                        "img": "https://cdn.jsdelivr.net/gh/asir3q/soso/style/img/weixindushu.png",
-                        "title": "微信读书"
+                        "site": "https://docs.qq.com/form/page/DQnNuQXBVWUNwSURL",
+                        "img": "./style/img/sqwebsite.svg",
+                        "title": "申请收录"
+                    },
+                    {
+                        "site": "https://szfilehelper.weixin.qq.com/",
+                        "img": "https://res.wx.qq.com/a/wx_fed/assets/res/OTE0YTAw.png",
+                        "title": "微信文件传输助手"
+                    },
+                    {
+                        "site": "https://doocs.github.io/md/",
+                        "img": "https://cdn-doocs.oss-cn-shenzhen.aliyuncs.com/gh/doocs/md/images/favicon.png",
+                        "title": "微信Markdown"
                     },
                     {
                         "site": "https://ovadi.yhzu.cn/ ",
