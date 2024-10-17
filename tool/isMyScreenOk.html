@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keyword" content="屏幕在线检测, isMyScreenOk, isscreentest, 屏幕检测, iphone, screen, 在线测试">
+    <title>isMyScreenOk? - 屏幕测试 - 坏点亮点在线测试</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+
+<body>
+    <div id="app" :style="{'background': background}">
+        <el-dialog title="按回车键(Enter)显示 / 隐藏工具栏" :visible.sync="centerDialogVisible" center :modal="false"
+            style="height: 600px;">
+            <el-tabs v-model="activeName" type="card" @tab-click="handleClick" :stretch="true">
+                <el-tab-pane label="纯色检测" name="first">
+                    <el-row>
+                        <h3>预设共{{ sevenSingleColor.length }}种颜色，其他可以可以使用自定义纯色</h3>
+                        <h3>点击键盘上的 小于键(<) 和 大于键(>) 控制颜色的切换</h3>
+                        <h3>按 回车键(Enter) 显示/隐藏工具栏</h3>
+                    </el-row>
+                </el-tab-pane>
+                <el-tab-pane label="自定义纯色检测" name="second">
+                    <el-row>
+                        <!-- <el-tag style="vertical-align: middle;">请选择颜色</el-tag> -->
+                        <el-color-picker v-model="background" show-alpha :predefine="predefineColors"
+                            @active-change="handleActiveChangeSingle"
+                            style="vertical-align: middle; margin-left: 20px;">
+                        </el-color-picker>
+                    </el-row>
+                </el-tab-pane>
+                <el-tab-pane label="自定义渐变检测" name="third">
+                    <el-form label-width="100px">
+                        <el-form-item label="渐变开始颜色">
+                            <el-color-picker v-model="startColor" show-alpha :predefine="predefineColors"
+                                @active-change="handleActiveChangeGradualStart"
+                                style="vertical-align: middle; margin-left: 20px;">
+                            </el-color-picker>
+                        </el-form-item>
+                        <el-form-item label="渐变结束颜色">
+                            <el-color-picker v-model="endColor" show-alpha :predefine="predefineColors"
+                                @active-change="handleActiveChangeGradualEnd"
+                                style="vertical-align: middle; margin-left: 20px;">
+                            </el-color-picker>
+                        </el-form-item>
+                        <el-form-item label="渐变旋转角度">
+                            <div style="display: inline-block; width: 600px;">
+                                <el-slider v-model="angle" :marks="marks" show-input :max="360"
+                                    style="vertical-align: middle; margin-left: 20px;">
+                                </el-slider>
+                            </div>
+                        </el-form-item>
+                    </el-form>
+                </el-tab-pane>
+            </el-tabs>
+        </el-dialog>
+    </div>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #app {
+            background: linear-gradient(120deg, #70a1ff, #ff6348);
+            height: 100vh;
+            width: 100vw;
+        }
+        .el-tabs__content {
+            padding: 20px;
+        }
+
+    </style>
+    <script>
+        // tab1默认数组颜色键
+        var tabFirstColorIndex = 0
+        new Vue({
+            el: '#app',
+            data: {
+                background: '#70a1ff',
+                backgroundFirst: '#70a1ff', // tab1颜色,用来存放默认颜色和恢复标签切换来时当前的颜色
+                backgroundSecond: '#ff4757', // tab2颜色,用来存放默认颜色和恢复标签切换来时当前的颜色
+                backgroundThird: 'linear-gradient(120deg, #70a1ff, #ff6348)', // tab3颜色,用来存放默认颜色和恢复标签切换来时当前的颜色
+                //tab1 纯色检测的数组，目前为7个
+                sevenSingleColor: [
+                    '#70a1ff',
+                    '#ffffff',
+                    '#000000',
+                    '#70a1ff',
+                    '#a4b0be',
+                    '#3742fa',
+                    '#ff6b81'
+                ],
+                predefineColors: [
+                    '#ffffff',
+                    '#000000',
+                    '#70a1ff',
+                    '#2ed573',
+                    '#a4b0be',
+                    '#3742fa',
+                    'rgb(255, 120, 0)',
+                    'hsv(51, 100, 98)',
+                    'hsl(181, 100%, 37%)',
+                    'hsla(209, 100%, 56%, 0.73)'
+                ],
+                angle: 120, // 自定义渐变角度
+                marks: {
+                    0: '0°',
+                    45: '45°',
+                    90: '90°',
+                    135: '135°',
+                    180: '180°',
+                    225: '225°',
+                    270: '270°',
+                    315: '315°',
+                    360: '0°'
+                },
+                startColor: '#70a1ff', // 自定义渐变开始颜色
+                endColor: '#ff6348', // 自定义渐变结束颜色
+                centerDialogVisible: false,
+                activeName: 'first',
+                tab: 1
+            },
+            created() {
+                document.addEventListener('keydown', this.handleKeyDown)
+                this.centerDialogVisible = true
+            },
+            mounted() {
+                this.$message({
+                    message: '按F11键可以开启 / 关闭浏览器全屏',
+                    type: 'info'
+                })
+            },
+            methods: {
+                // 自定义纯色检测
+                handleActiveChangeSingle(color) {
+                    this.background = color
+                    this.backgroundSecond = color
+                },
+                // 自定义渐变检测开始颜色
+                handleActiveChangeGradualStart(color) {
+                    this.startColor = color
+                    this.backgroundThird = "linear-gradient(" + this.angle + "deg, " + this.startColor + ", " +
+                        this.endColor + ")"
+                },
+                // 自定义渐变检测结束颜色
+                handleActiveChangeGradualEnd(color) {
+                    this.endColor = color
+                    this.backgroundThird = "linear-gradient(" + this.angle + "deg, " + this.startColor + ", " +
+                        this.endColor + ")"
+                },
+                handleClick(tab, event) {
+                    if (event.target.getAttribute('id').search('first') != -1) {
+                        this.tab = 1
+                        this.background = this.backgroundFirst
+                    }
+                    if (event.target.getAttribute('id').search('second') != -1) {
+                        this.tab = 2
+                        this.background = this.backgroundSecond
+                    }
+                    if (event.target.getAttribute('id').search('third') != -1) {
+                        this.tab = 3
+                        this.background = this.backgroundThird
+                    }
+                },
+                handleKeyDown(e) {
+                    var key = window.event.keyCode ? window.event.keyCode : window.event.which
+                    if (key === 13) {
+                        this.centerDialogVisible = !this.centerDialogVisible
+                        e.preventDefault() //取消浏览器原有的ctrl+s操作
+                    }
+                    if (key === 188) {
+                        if (this.tab == 1) {
+                            tabFirstColorIndex++
+                            tabFirstColorIndex = tabFirstColorIndex > this.sevenSingleColor.length - 1 ? 0 :
+                                tabFirstColorIndex
+                            this.backgroundFirst = this.sevenSingleColor[tabFirstColorIndex]
+                            this.background = this.sevenSingleColor[tabFirstColorIndex]
+                        }
+                    }
+                    if (key === 190) {
+                        if (this.tab == 1) {
+                            tabFirstColorIndex--
+                            tabFirstColorIndex = tabFirstColorIndex < 0 ? this.sevenSingleColor.length - 1 :
+                                tabFirstColorIndex
+                            this.backgroundFirst = this.sevenSingleColor[tabFirstColorIndex]
+                            this.background = this.sevenSingleColor[tabFirstColorIndex]
+                        }
+                    }
+                },
+
+            },
+            watch: {
+                angle() {
+                    this.background = "linear-gradient(" + this.angle + "deg, " + this.startColor + ", " + this
+                        .endColor + ")"
+                },
+                startColor() {
+                    this.background = "linear-gradient(" + this.angle + "deg, " + this.startColor + ", " + this
+                        .endColor + ")"
+                },
+                endColor() {
+                    this.background = "linear-gradient(" + this.angle + "deg, " + this.startColor + ", " + this
+                        .endColor + ")"
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>
