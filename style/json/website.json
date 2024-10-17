@@ -143,27 +143,27 @@
                 "sitelist": [
                     {
                         "site": "https://weread.qq.com/",
-                        "img": "./style/img/website/weixindushu.png",
+                        "img": "./style/img/weixindushu.png",
                         "title": "微信读书"
                     },
                     {
                         "site": "https://read.douban.com/",
-                        "img": "./style/img/website/dbread.ico",
+                        "img": "./style/img/douban.svg",
                         "title": "豆瓣阅读"
                     },
                     {
                         "site": "https://e-m.jd.com/",
-                        "img": "./style/img/website/jdread.png",
+                        "img": "./style/img/jdread.png",
                         "title": "京东读书"
                     },
                     {
                         "site": "https://www.dushu.com/",
-                        "img": "./style/img/website/dsw.ico",
+                        "img": "./style/img/dsw.ico",
                         "title": "读书网"
                     },
                     {
                         "site": "https://yuedu.163.com/",
-                        "img": "./style/img/website/wyyread.ico",
+                        "img": "./style/img/wyyread.ico",
                         "title": "网易云阅读"
                     }
                 ]
