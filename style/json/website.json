@@ -118,22 +118,22 @@
                     },
                     {
                         "site": "https://zh.wikihow.com/",
-                        "img": "//static.yumus.cn/static/img/website/wikiHow.ico",
+                        "img": "./style/img/wikiHow.ico",
                         "title": "wikiHow"
                     },
                     {
                         "site": "https://www.allhistory.com/",
-                        "img": "//static.yumus.cn/static/img/website/allhistory.ico",
+                        "img": "./style/img/allhistory.ico",
                         "title": "全历史"
                     },
                     {
                         "site": "https://searchcode.com/",
-                        "img": "//static.yumus.cn/static/img/website/searchcode.ico",
+                        "img": "./style/img/searchcode.ico",
                         "title": "searchcode"
                     },
                     {
                         "site": "https://www.jiumodiary.com/",
-                        "img": "//static.yumus.cn/static/img/website/Jiumo.png",
+                        "img": "./style/img/Jiumo.png",
                         "title": "鸠摩搜书"
                     }
                 ]
