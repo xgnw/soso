@@ -30,33 +30,33 @@
                         "site": "./tool/qrcode.html ",
                         "img": "./style/img/tool-qrcode.svg",
                         "title": "生成二维码"
-                    }
-                    ,{
+                    },
+                    {
                         "site": "./tool/family.html ",
                         "img": "./style/img/tool-family.svg",
                         "title": "家庭称谓计算器"
-                    }
-                    ,{
+                    },
+                    {
                         "site": "./tool/password.html ",
                         "img": "./style/img/tool-password.svg",
                         "title": "随机密码"
                     },
-                    ,{
+                    {
                         "site": "./tool/taiqian/index.html ",
                         "img": "./style/img/print.jpg",
                         "title": "台签打印程序"
                     },
-                    ,{
+                    {
                         "site": "./tool/color.html ",
                         "img": "./style/img/color.jpg",
                         "title": "随机色头像"
                     },
-                    ,{
+                    {
                         "site": "./tool/no/index.html ",
                         "img": "./style/img/no.ico",
                         "title": "保持屏幕开启"
                     },
-                    ,{
+                    {
                         "site": "./tool/isMyScreenOk.html ",
                         "img": "./style/img/isMyScreenOk.ico",
                         "title": "屏幕测试 - 坏点亮点在线测试"
