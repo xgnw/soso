@@ -56,6 +56,11 @@
                         "img": "./style/img/no.ico",
                         "title": "保持屏幕开启"
                     },
+                    ,{
+                        "site": "./tool/isMyScreenOk.html ",
+                        "img": "./style/img/isMyScreenOk.ico",
+                        "title": "屏幕测试 - 坏点亮点在线测试"
+                    },
                     {
                         "site": "https://www.yumus.cn/ ",
                         "img": "./style/img/favicon_300.jpg",
